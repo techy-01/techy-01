@@ -1,0 +1,58 @@
+
+questing 1:  (use shell script or whatever else language)
+Attached apache access log(apache_log.log), this has IP address and the request type. Now write a shell script to print each ip address with number of GET /PUT /POST /DELETe request
+
+Output should be something like below,
+
+192.168.10.20: GET=6,POST=3,PUT=3,DELETE=1
+43.56.76.4: GET=4,POST=3,PUT=1,DELETE=3
+
+===========================================================================================================
+
+question 2:  (use perl or python or whatever else language)
+Write a program to generate a log similar to output pattern below from same above attached apache access log(apache_log.log).
+
+Notes:
+1) You should get arguments from user like how many lines, output file name, or print in console etc
+2) Also it should support help which provides options to user how to provide input / run the program
+3) Do not use any external lib
+
+eg:
+perl test.pl --help   (it should display help options)
+perl test.pl -n 200  -type console  (it should print the log in console)
+perl test.pl -n 100  -type log -name abc.log  (it should print the log in a file)
+
+Output pattern in file / log :
+192.168.10.20 - - [18/Jul/2017:08:41:37 +0000] PUT /search/tag/list HTTP/1.0" 200
+10.30.24.3 - - [18/Jul/2017:08:45:15 +0000] POST /search/tag/list HTTP/1.0" 500 
+10.30.24.3 - - [18/Jul/2017:08:45:15 +0000] GET /search/tag/list HTTP/1.0" 401 
+
+====================================================================================================================================================================
+
+question3:  (shell script and linux usage)
+
+Write a script(tag.sh) to tag a  GIT source code, to current date time, in git master branch
+
+Example Input parameters (your created script tag.sh should accept below user parameters, except Tag_pattern) :
+git_source_url=https://example.application.com/repo.git
+username=test
+password=test_password
+
+Tag_pattern=dd-mm-yy-hh-application-v1  (v1 should be fetched and incremented, from existing available tags name or should be set as a new pattern, if no current tags available. This happens each time when you run tag.sh script)
+
+Run:
+$ ./tag.sh -source_url https://example.application.com/repo.git -u username -p password 
+
+OutPut (Result) : 
+
+A new TAG "dd-mm-yy-hh-application-v1" is created in GIT (Github/GitLab etc) master branch.
+
+Hint :
+
+- clone git remote repository
+- Find out existing tags
+- calculate the tag name (Tag_pattern is not a user parameter and should be calculated as mentioned above)
+- create the tag
+- push the tag
+
+==================================================================================================================================================================================
